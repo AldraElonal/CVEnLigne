@@ -1,0 +1,26 @@
+body {
+    padding-top: 5rem;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+
+.photo{
+    max-height: 300px;
+    max-width: 200px;
+}
+
+figure{
+    margin : 2px;
+}
+
+.logoEntreprise{
+    float: right;
+}
+
+
+#portfolio figure{
+cursor:pointer;
+}
