@@ -24,3 +24,11 @@ figure{
 #portfolio figure{
 cursor:pointer;
 }
+
+figcaption{
+    text-align: center;
+}
+
+.card{
+    margin: 5px 0px;
+}
