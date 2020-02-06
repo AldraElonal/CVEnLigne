@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -235,18 +238,48 @@
 <section id="contact" class="card">
     <h2 class="card-header">Contact</h2>
     <div class="card-body">
-        <form>
+        <form action="formulaire.php" method="post">
             <div class="form-group">
                 <label for="name">Votre nom: </label>
                 <input type="text" name="name" id="name" class="form-control" required>
+                <?php if(isset($_SESSION['erreur']['name'])) { ?>
+                 <p class="error_form">Ce champ ne peut être vide</p>
+                    <?php
+                    unset($_SESSION['erreur']['name']);
+                }
+                ?>
             </div>
             <div class="form-group">
                 <label for="email">Votre email: </label>
                 <input type="text" name="email" id="email" class="form-control" required>
+                <?php if(isset($_SESSION['erreur']['email'])) { ?>
+                    <p class="error_form">Vous devez indiquer votre email</p>
+                    <?php
+                    unset($_SESSION['erreur']['email']);
+                }
+                ?>
             </div>
+
+            <div class="form-group">
+                <label for="subject">Objet :  </label>
+                <input type="text" name="subject" id="subject" class="form-control" required>
+                <?php if(isset($_SESSION['erreur']['subject'])) { ?>
+                    <p class="error_form">Ce champ ne peut être vide</p>
+                    <?php
+                    unset($_SESSION['erreur']['subject']);
+                }
+                ?>
+            </div>
+
             <div class="form-group">
                 <label for="content">Votre Message: </label>
                 <textarea name="content" id="content"  class="form-control" required></textarea>
+                <?php if(isset($_SESSION['erreur']['content'])) { ?>
+                    <p class="error_form">Ce champ ne peut être vide</p>
+                    <?php
+                    unset($_SESSION['erreur']['content']);
+                }
+                ?>
             </div>
             <div class="form-group">
                 <input type="submit" value="Envoyer!" class="btn btn-success">
@@ -257,8 +290,6 @@
     </div>
 </section>
 
-
-</body>
 <!-- JQuery for bootstrap -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
